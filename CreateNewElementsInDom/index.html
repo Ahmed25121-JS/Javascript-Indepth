@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Chai aur code</title>
+  </head>
+  <body style="background-color: black; color: white">
+    <div class="parent">
+      <div class="day">monday</div>
+      <div class="day">tuesday</div>
+      <div class="day">wednesday</div>
+      <div class="day">thursday</div>
+    </div>
+  </body>
+
+  <script>
+    const parent = document.querySelector(".parent");
+    console.log(
+      parent.children
+    ); /*when we use .children will give us html clledction  */
+    //    console.log(parent.children[1].innerHTML);
+    // for loop can be used on html collections and nodelist regardless of them not being arrays
+
+    //   for (let i = 0; i < parent.children.length; i++) {
+    //              console.log(parent.children[i].innerHTML);
+    //     }
+    // parent.children[1].style.color='orange'
+    // console.log(parent.firstElementChild);
+    // console.log(parent.lastElementChild);
+
+    const dayOne = document.querySelector(".day");
+    // console.log(dayOne.parentElement);
+    // console.log(dayOne.nextElementSibling);
+
+    // Every element in javascript has child nodes even a space or line break(when we  press enter)
+    // is counted as a child node. Every element has childnodes
+    // Each element itself is a nodelist. Each element has all the values (from ariatext to id,classes etc
+    //)these values are just not set
+    // every element and its children create a complex tree structure
+    // broweser is creating a very complex tree type structure behind the scenes thus
+    // doing a lot of work thats why web/browser is not optimised
+    console.log("NODES", parent.childNodes);
+  </script>
+</html>

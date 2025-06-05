@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>DOM Learning</title>
+    <style>
+        .bg-black{
+            background-color: black;
+            color: white;
+        }
+    </style>
+</head>
+<body  class="bg-black">
+    <div>
+        <h1 id="title" class="heading">Dom learning <span style="display: none;">test text </span></h1>
+<h2>
+Lorem ipsum dolor sit amet consectetur adipisicing elit.</h2>
+<h2>
+Lorem ipsum dolor sit amet consectetur adipisicing elit.</h2>
+<h2>
+Lorem ipsum dolor sit amet consectetur adipisicing elit.</h2>
+<input type="password" name="" id="">
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+        <ul>
+            <li class="list">one</li>
+            <li class="list">two</li>
+            <li class="list">three</li>
+            <li class="list">four</li>
+        </ul>
+    </div>
+<!-- .textcontent gives inner text even if some elements have display hidden
+ but .innertext only gives inner text of the displayed value-->
+    <!-- document.queryselector works with css selectorsas well like p:firstchild 
+     and document.querySelector('input[type="password"]') -->
+     <!-- when we use document.queryselectorAll we get nodelist which is like an array but not an array (it has for each)-->
+     <!-- when we use document.getelementbyclassname/tagname we get htmlcollection which is like an array but not an array (it
+       does not have foreach
+      )-->
+      <!-- to use array methods on both of them we have to convert them to array -->
+
+
+
+</body>
+</html>
