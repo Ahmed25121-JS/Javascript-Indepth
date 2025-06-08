@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>html Events </title>
+</head>
+<body style="background-color: #414141; color: aliceblue;">
+    <h2>Amazing image</h2>
+    <div >
+        <ul id="images">
+            <li><img width="200px" id="photoshop" src="https://images.pexels.com/photos/3561339/pexels-photo-3561339.jpeg?auto=compress&cs=tinysrgb&w=1600&lazy=load" alt="photoshop"></li>
+            <li><img width="200px" id="japan" src="https://images.pexels.com/photos/3532553/pexels-photo-3532553.jpeg?auto=compress&cs=tinysrgb&w=1600&lazy=load" alt=""></li>
+            <li><img width="200px" id="river" src="https://images.pexels.com/photos/3532551/pexels-photo-3532551.jpeg?auto=compress&cs=tinysrgb&w=1600&lazy=load" alt=""></li>
+            <li><img width="200px" id="owl" src="https://images.pexels.com/photos/3532552/pexels-photo-3532552.jpeg?auto=compress&cs=tinysrgb&w=1600&lazy=load" alt=""   ></li>
+            <li><img width="200px" id="prayer" src="https://images.pexels.com/photos/2522671/pexels-photo-2522671.jpeg?auto=compress&cs=tinysrgb&w=1600&lazy=load" alt=""></li>
+            <li><a style="color: aliceblue;" href="https://google.com" id="google">Google</a></li>
+        </ul>
+   </div>
+</body>
+<script>
+// all the events in js are run sequentially
+// events are invoked on an action 
+// onclick="alert('owl')" => this approach is considered bad because this is not scalable code we shouldnt add 
+//  onclick directly in our html
+
+// document.getElementById("owl").onclick = function() {
+//     alert('owl')  
+// }   this approach is also not good because this gives us too little information  about the event(using onclick)
+//  we should use event listeners these give us not only onclick functionality but also give us propogation ability
+//  and more information about our event
+
+document.getElementById('owl').addEventListener('click',()=>{
+    alert('owl'), false
+}) /*  third argument/value in add event listeners is false by default this means the event is not yet clicked
+in some cases we have to write false to get the program to run*/
+
+// attachEvent() this was used in internet explorer
+// jQuery - we used on instead of add event listener in jquery
+
+// document.getElementById('owl').addEventListener('click',(e)=>{
+//    console.log(e);
+   
+
+
+// },false)  when an event happens we want to do some work due to result of this event.
+// To do this  work we use the event object 
+// mostly we get browser events and environment eventas
+// environment events include where did the mouse click, what was the position the mouse what was the x and 
+//  what was the y
+// interview questions like finding the time of the click and creating circles on the exact position on a click on a div 
+//  are done with using events
+
+// We get a lot of events from the event object.These are which events to study in this event object
+// type,timestamp,defaultPrevented
+// target,toElement,srcElement,currentTarget,
+// clientX,clientY,screenX,screenY offset position related imp for interviews
+// altkey,ctrlkey,shiftkey,keyCode .Events can also detect whether special keys like this have been pressed or not
+
+
+// Event propogation has 2 contexts
+// event bubbling and event capturing(when third argument is true)
+// mostly used in market is event bubbling( when third argument is false) but sometimes event capturing is also used
+
+// Event Bubbling is when we have an event listener on a parent element and there is an event listener on a child element
+// the events bubble from bottom to top the event listener on the child gets triggered first and then causes 
+// the parent event listener to go off as well because the child is inside the aprent
+//  and event capturing is  opposite events get triggered from parent element and causes event listener on child
+// to go off as well
+
+// if we want to stop event propogation/bubbling/capturing we ust stoppropogation() meaning that now clicking
+// on the child element will not make the event listener on the parent go off and vice versa for event capturing
+
+// document.getElementById('images').addEventListener('click',(e)=>{
+//    console.log('clicked inside ul');
+
+// },)
+
+// document.getElementById('owl').addEventListener('click',(e)=>{
+//    console.log('owl clicked');
+// e.stopPropagation()
+// },)
+
+// document.getElementById('google').addEventListener('click',(e)=>{
+//    e.stopPropagation()
+//  e.preventDefault()
+//     console.log('google click');
+    
+// },false)
+
+document.querySelector('#images').addEventListener('click',(e)=>{
+// we are using check to stop event spillover meaning that accidentally ul does not get removed
+// because li parent is ul
+if (e.target.tagName === 'IMG') {
+let removeIt= e.target.parentNode
+ removeIt.remove()
+}
+console.log(e.target.tagName)
+},false)
+
+// removeIt.parentNode.removeChild(removeIt)
+</script>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- 
+<script>
+    // document.getElementById('owl').onclick = function(){
+    //     alert("owl clicked")
+    // }
+
+     // attachEvent()
+    // jQuery - on
+
+    // type, timestamp, defaultPrevented
+    // target, toElement, srcElement, currentTarget,
+    // clientX, clientY, screenX, screenY
+    // altkey, ctrlkey, shiftkey, keyCode
+
+    // document.getElementById('images').addEventListener('click', function(e){
+    //     console.log("clicked inside the ul");
+    // }, false)
+
+    // document.getElementById('owl').addEventListener('click', function(e){
+    //     console.log("owl clicked");
+    //     e.stopPropagation()
+    // }, false)
+    
+    // document.getElementById('google').addEventListener('click',function(e){
+    //     e.preventDefault();
+    //     e.stopPropagation()
+    //     console.log("google clicked");
+    // }, false)
+   
+    
+    document.querySelector('#images').addEventListener('click', function(e){
+        console.log(e.target.tagName);
+        if (e.target.tagName === 'IMG') {
+            console.log(e.target.id);
+            let removeIt = e.target.parentNode
+            removeIt.remove()
+        }
+    
+        
+    })
+    
+    //removeIt.parentNode.removeChild(removeIt)
+</script> -->

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>chai aur code</h1>
+    <button id="stop">stop</button>
+    <!-- settimeout and setinterval are functions given to us by the web api/runtime environment they are not
+     part of core javascript engine -->
+</body>
+<script>
+    const sayAhmed = function(){
+console.log('ahmed')
+}
+
+const changeText = function(){document.getElementsByTagName('h1')[0].innerHTML ="Best JS series"}
+
+const changeMe= setTimeout(changeText,2000)
+ /* clear time is used to stop the settimeout on a given event. */
+document.querySelector('#stop').addEventListener('click',()=>{
+clearTimeout(changeMe)
+console.log("stopped");
+
+})
+
+</script>
+</html>
